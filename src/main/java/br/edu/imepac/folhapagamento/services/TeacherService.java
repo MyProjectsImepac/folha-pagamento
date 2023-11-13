@@ -24,11 +24,17 @@ public class TeacherService {
         this.modelMapper = modelMapper;
     }
 
+    public TeacherDTO findTeacherEN(Long id, String name){
+        return teacherRepository.findByIdAndName(id, name);
+    }
+
     public TeacherDTO save(TeacherCreateRequest teacherCreateRequest) {
         Teacher teacher = modelMapper.map(teacherCreateRequest, Teacher.class);
         teacher = teacherRepository.save(teacher);
         return modelMapper.map(teacher, TeacherDTO.class);
     }
+
+
 
     public List<TeacherDTO> findAll() {
         List<Teacher> teachers = teacherRepository.findAll();

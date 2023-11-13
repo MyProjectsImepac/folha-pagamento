@@ -16,6 +16,4 @@ public class Teacher extends Employer {
 
     private Float valueHour;
 
-//    @OneToMany(targetEntity = AcademicSemesterTeacher.class)
-//    private List<AcademicSemesterTeacher> academicSemesterTeachers;
 }

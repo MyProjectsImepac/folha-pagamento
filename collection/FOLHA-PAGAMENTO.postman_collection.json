@@ -23,7 +23,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/folha-pagamento/teacher"
+						"url": "http://localhost:8081/folha-pagamento/teacher"
 					},
 					"response": []
 				},
@@ -41,7 +41,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/folha-pagamento/teacher/31"
+						"url": "http://localhost:8081/folha-pagamento/teacher/31"
 					},
 					"response": []
 				},
@@ -62,7 +62,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/folha-pagamento/teacher/53"
+						"url": "http://localhost:8081/folha-pagamento/teacher/53"
 					},
 					"response": []
 				},
@@ -83,7 +83,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8080/folha-pagamento/teacher"
+						"url": "http://localhost:8081/folha-pagamento/teacher"
 					},
 					"response": []
 				}
