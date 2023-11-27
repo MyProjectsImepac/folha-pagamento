@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
-@Entity(name = "course_managers")
+@Entity(name = "cordinators")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CourseManager extends Employer {
+public class Cordinator extends Employer {
     private Float percentsStudent;
     private Float valuePayments;
     private Integer amountStudents;
