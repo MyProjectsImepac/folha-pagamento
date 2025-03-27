@@ -7,32 +7,38 @@ Modificadores de acesso:
 - protected: A classe é acessível pela própria classe e por classes que a estendem.
 - default: A classe só é acessível por classes do mesmo pacote.
 */
-public class Professor {
-    private String nome;
-    private String cpf;
-    private Endereco endereco;
+public class Professor extends Funcionario{
+    private int quantidadeAulas;
+    private double valorHoraAula;
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Professor(String nome, String cpf, Endereco endereco, int quantidadeAulas, double valorHoraAula) {
+        super(nome, cpf, endereco);
+        this.quantidadeAulas = quantidadeAulas;
+        this.valorHoraAula = valorHoraAula;
     }
 
-    public String getNome() {
-        return nome;
+    public Professor(){
+        super();
     }
 
-    public String getCpf() {
-        return cpf;
+    public int getQuantidadeAulas() {
+        return quantidadeAulas;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setQuantidadeAulas(int quantidadeAulas) {
+        this.quantidadeAulas = quantidadeAulas;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    @Override
+    public double getSalario() {
+        return this.valorHoraAula * this.quantidadeAulas;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public double getValorHoraAula() {
+        return valorHoraAula;
+    }
+
+    public void setValorHoraAula(double valorHoraAula) {
+        this.valorHoraAula = valorHoraAula;
     }
 }
