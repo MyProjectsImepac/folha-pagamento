@@ -1,57 +1,86 @@
 package br.edu.imepac.executaveis;
 
-
-import br.edu.imepac.entidades.Bibliotecario;
-import br.edu.imepac.entidades.Coordenador;
-import br.edu.imepac.entidades.Endereco;
-import br.edu.imepac.entidades.Professor;
+import br.edu.imepac.entidades.*;
+import java.util.Scanner;
 
 public class Run {
     public static void main(String[] args) {
-        Professor professor01 = new Professor();
+        Scanner scanner = new Scanner(System.in);
+        Funcionario[] funcionarios = new Funcionario[5];
+        int count = 0;
 
-        professor01.setNome("Everton");
-        professor01.setCpf("123.456.789-00");
-        professor01.setQuantidadeAulas(80);
-        professor01.setValorHoraAula(50.0);
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Cadastrar Professor");
+            System.out.println("2. Cadastrar Coordenador");
+            System.out.println("3. Cadastrar Bibliotecario");
+            System.out.println("4. Calcular Folha de Pagamento");
+            System.out.println("5. Sair");
+            System.out.print("Escolha uma opção: ");
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Consumir a nova linha
 
-        Endereco endereco = new Endereco();
-        endereco.setRua("Rua 01");
-        endereco.setBairro("Bairro 01");
-        endereco.setCidade("Cidade 01");
-        endereco.setEstado("Estado 01");
-        endereco.setCep("12345-678");
-        endereco.setNumero("123");
+            if (opcao == 1) {
+                if (count < funcionarios.length) {
+                    Professor professor = new Professor();
+                    System.out.print("Nome: ");
+                    professor.setNome(scanner.nextLine());
+                    System.out.print("CPF: ");
+                    professor.setCpf(scanner.nextLine());
+                    System.out.print("Quantidade de Aulas: ");
+                    professor.setQuantidadeAulas(scanner.nextInt());
+                    System.out.print("Valor Hora Aula: ");
+                    professor.setValorHoraAula(scanner.nextDouble());
+                    scanner.nextLine(); // Consumir a nova linha
+                    funcionarios[count++] = professor;
+                } else {
+                    System.out.println("Limite de funcionários atingido.");
+                }
+            } else if (opcao == 2) {
+                if (count < funcionarios.length) {
+                    Coordenador coordenador = new Coordenador();
+                    System.out.print("Nome: ");
+                    coordenador.setNome(scanner.nextLine());
+                    System.out.print("CPF: ");
+                    coordenador.setCpf(scanner.nextLine());
+                    System.out.print("Quantidade de Alunos: ");
+                    coordenador.setQuantidadeAlunos(scanner.nextInt());
+                    System.out.print("Mensalidade: ");
+                    coordenador.setMensalidade(scanner.nextDouble());
+                    scanner.nextLine(); // Consumir a nova linha
+                    funcionarios[count++] = coordenador;
+                } else {
+                    System.out.println("Limite de funcionários atingido.");
+                }
+            } else if (opcao == 3) {
+                if (count < funcionarios.length) {
+                    Bibliotecario bibliotecario = new Bibliotecario();
+                    System.out.print("Nome: ");
+                    bibliotecario.setNome(scanner.nextLine());
+                    System.out.print("CPF: ");
+                    bibliotecario.setCpf(scanner.nextLine());
+                    System.out.print("Salário: ");
+                    bibliotecario.setSalario(scanner.nextDouble());
+                    scanner.nextLine(); // Consumir a nova linha
+                    funcionarios[count++] = bibliotecario;
+                } else {
+                    System.out.println("Limite de funcionários atingido.");
+                }
+            } else if (opcao == 4) {
+                double folhaPagamento = 0;
+                for (Funcionario f : funcionarios) {
+                    if (f != null) {
+                        folhaPagamento += f.getSalario();
+                    }
+                }
+                System.out.println("Folha de pagamento: " + folhaPagamento);
+            } else if (opcao == 5) {
+                break;
+            } else {
+                System.out.println("Opção inválida.");
+            }
+        }
 
-        professor01.setEndereco(endereco);
-
-        System.out.println("Nome: " + professor01.getNome());
-        System.out.println("CPF: " + professor01.getCpf());
-        System.out.println("Salário: " + professor01.getSalario());
-        System.out.println("Salário: " + professor01.getSalario(5000));
-
-        Coordenador coordenador01 = new Coordenador();
-
-        coordenador01.setNome("Cristiane");
-        coordenador01.setCpf("987.654.321-00");
-        coordenador01.setQuantidadeAlunos(200);
-        coordenador01.setMensalidade(700.0);
-
-        System.out.println("Nome: " + coordenador01.getNome());
-        System.out.println("CPF: " + coordenador01.getCpf());
-        System.out.println("Salário: " + coordenador01.getSalario());
-
-
-        Bibliotecario bibliotecario01 = new Bibliotecario();
-
-        bibliotecario01.setNome("João");
-        bibliotecario01.setCpf("456.789.123-00");
-        bibliotecario01.setSalario(2000.0);
-
-        System.out.println("Nome: " + bibliotecario01.getNome());
-        System.out.println("CPF: " + bibliotecario01.getCpf());
-        System.out.println("Salário: " + bibliotecario01.getSalario());
-
-        Professor x = new Professor("Crispin", "123.456.789-00", null, 80, 50.0);
+        scanner.close();
     }
 }
